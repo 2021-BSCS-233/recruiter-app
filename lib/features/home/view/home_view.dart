@@ -6,6 +6,7 @@ import 'package:recruiter/core/common/widgets/action_button.dart';
 import 'package:recruiter/core/routes/app_routes.dart';
 import 'package:recruiter/features/home/controller/home_controller.dart';
 import 'package:recruiter/features/home/widgets/home_drawer.dart';
+import 'package:recruiter/features/interviews/view/interview_view.dart';
 import 'package:recruiter/features/job/view/job_view.dart';
 import 'package:recruiter/features/messages/controller/message_controller.dart';
 import 'package:recruiter/features/messages/view/message_view.dart';
@@ -18,7 +19,7 @@ class HomeView extends StatelessWidget {
 
   final List<Widget> pageList = [
     JobView(),
-    Center(child: Text('Interviews')),
+    InterviewView(),
     MessageView(),
   ];
 

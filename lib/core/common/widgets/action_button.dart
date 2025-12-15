@@ -11,6 +11,7 @@ class ActionButton extends StatelessWidget {
   final double? height;
   final double? width;
   final String? prefixIcon;
+  final String? suffixIcon;
   final double? hPadding;
   final Color? bgColor;
   final bool? disabled;
@@ -28,6 +29,7 @@ class ActionButton extends StatelessWidget {
     this.noColor,
     this.bgColor,
     this.disabled,
+    this.suffixIcon,
   });
 
   @override
@@ -90,6 +92,14 @@ class ActionButton extends StatelessWidget {
                       ),
                     )
                   : SizedBox(),
+              suffixIcon != null ? SvgPicture.string(suffixIcon!) : SizedBox(),
+              SizedBox(
+                width: buttonText == ''
+                    ? 0
+                    : suffixIcon != null
+                    ? 5
+                    : 0,
+              ),
             ],
           ),
         ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:recruiter/core/common/icons/app_icons.dart';
 import 'package:recruiter/core/common/widgets/action_button.dart';
+import 'package:get/get.dart';
+import 'package:recruiter/features/messages/widgets/new_conversation_dialog.dart';
 
 class NoChatsMessage extends StatelessWidget {
   const NoChatsMessage({super.key});
@@ -44,7 +46,9 @@ class NoChatsMessage extends StatelessWidget {
             width: 165,
             prefixIcon: AppIcons.addIcon,
             buttonText: 'New Message',
-            onPress: () {},
+            onPress: () {
+              Get.dialog(NewConversationDialog());
+            },
           )
         ],
       ),

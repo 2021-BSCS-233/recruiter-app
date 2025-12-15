@@ -5,7 +5,6 @@ class OptionToggleTile extends StatelessWidget {
   final String tileText;
   final bool toggleValue;
   final String? subTitle;
-  // final bool? hasSubTiles;
   final Function toggleFunction;
 
   const OptionToggleTile(

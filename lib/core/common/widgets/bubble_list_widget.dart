@@ -3,14 +3,16 @@ import 'package:get/get.dart';
 
 class BubbleListWidget extends StatelessWidget {
   final String text;
-  final bool? noOnTap;
+  final bool? noIcon;
+  final Color? color;
   final Function onTap;
 
   const BubbleListWidget({
     super.key,
     required this.text,
     required this.onTap,
-    this.noOnTap,
+    this.noIcon,
+    this.color,
   });
 
   @override
@@ -24,7 +26,7 @@ class BubbleListWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(20)),
-          color: Get.theme.listTileTheme.selectedTileColor,
+          color: color ?? Get.theme.listTileTheme.selectedTileColor,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -33,8 +35,8 @@ class BubbleListWidget extends StatelessWidget {
               text,
               style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
             ),
-            SizedBox(width: noOnTap == true ? 0 : 5),
-            noOnTap == true ? SizedBox() : Icon(Icons.close, size: 12),
+            SizedBox(width: noIcon == true ? 0 : 5),
+            noIcon == true ? SizedBox() : Icon(Icons.close, size: 12),
           ],
         ),
       ),

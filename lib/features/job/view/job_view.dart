@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:recruiter/core/common/icons/app_icons.dart';
+import 'package:recruiter/core/common/widgets/action_button.dart';
+import 'package:recruiter/core/common/widgets/input_field.dart';
+import 'package:recruiter/core/routes/app_routes.dart';
+import 'package:recruiter/features/job/controller/jobs_controller.dart';
 import 'package:recruiter/features/job/widgets/tabs/all_jobs_tab.dart';
 import 'package:recruiter/features/job/widgets/tabs/closed_tab.dart';
 import 'package:recruiter/features/job/widgets/tabs/drafts_tab.dart';
@@ -7,7 +12,8 @@ import 'package:recruiter/features/job/widgets/tabs/paused_tab.dart';
 import 'package:recruiter/features/job/widgets/tabs/published_tab.dart';
 
 class JobView extends StatelessWidget {
-  const JobView({super.key});
+  final JobController jobController = Get.put(JobController());
+  JobView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,14 +65,33 @@ class JobView extends StatelessWidget {
 
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: TabBarView(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Column(
                   children: [
-                    AllJobsTab(),
-                    DraftsTab(),
-                    PublishedTab(),
-                    ClosedTab(),
-                    PausedTab(),
+                    InputField(
+                      controller: jobController.jobSearchTC,
+                      prefixIcon: Icons.search,
+                      hintText: 'Search Job Title',
+                    ),
+                    SizedBox(height: 15),
+                    ActionButton(
+                      buttonText: 'Filter',
+                      inverted: true,
+                      prefixIcon: AppIcons.sliderBarsIcon,
+                      onPress: () {Get.toNamed(AppRoutes.jobFilterView);},
+                    ),
+                    SizedBox(height: 15),
+                    Expanded(
+                      child: TabBarView(
+                        children: [
+                          AllJobsTab(),
+                          DraftsTab(),
+                          PublishedTab(),
+                          ClosedTab(),
+                          PausedTab(),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),

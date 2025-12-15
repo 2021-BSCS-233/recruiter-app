@@ -6,6 +6,7 @@ import 'package:recruiter/core/common/widgets/white_curved_box.dart';
 import 'package:get/get.dart';
 import 'package:recruiter/core/routes/app_routes.dart';
 import 'package:recruiter/features/messages/widgets/message_tile.dart';
+import 'package:recruiter/features/messages/widgets/new_conversation_dialog.dart';
 
 class MessageView extends StatelessWidget {
   const MessageView({super.key});
@@ -23,7 +24,9 @@ class MessageView extends StatelessWidget {
               width: 151,
               prefixIcon: AppIcons.addIcon,
               buttonText: 'New Message',
-              onPress: () {},
+              onPress: () {
+                Get.dialog(NewConversationDialog());
+              },
             ),
             SizedBox(height: 15),
             Row(
@@ -120,7 +123,9 @@ class MessageView extends StatelessWidget {
                 itemCount: 5,
                 itemBuilder: (context, index) {
                   return MessageTile(
-                    onTap: (){Get.toNamed(AppRoutes.chatsView);},
+                    onTap: () {
+                      Get.toNamed(AppRoutes.chatsView);
+                    },
                     profilePic: 'assets/images/temp.jpg',
                     name: 'Emily Johnson',
                     lastMessage:

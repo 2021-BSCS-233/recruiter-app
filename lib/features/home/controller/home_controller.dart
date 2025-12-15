@@ -12,7 +12,7 @@ class HomeController extends GetxController {
       drawerIcon: AppIcons.jobIcon,
       filledDrawerIcon: AppIcons.filledJobIcon,
       selected: true,
-      pageRoute: AppRoutes.jobSearchView,
+      pageRoute: AppRoutes.jobView,
     ),
     DrawerOptionModel(
       title: 'Interviews',
